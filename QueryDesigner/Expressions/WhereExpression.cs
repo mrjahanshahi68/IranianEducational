@@ -339,16 +339,18 @@ namespace QueryDesigner.Expressions
         /// <returns>Converted value.</returns>
         private static object TryCastFieldValueType(object value, Type type)
         {
-            if (value == null || (!AvailableCastTypes.Contains(type) && !type.GetTypeInfo().IsEnum))
+			Type underlyingType = Nullable.GetUnderlyingType(type);
+			var isEnum = (underlyingType != null) && underlyingType.IsEnum;
+			if (value == null || (!AvailableCastTypes.Contains(type) && !isEnum))
                 throw new InvalidCastException($"Cannot convert value to type {type.Name}.");
 
             var valueType = value.GetType();
 
-            if (valueType == type)
+            if (valueType == underlyingType)
                 return value;
 
-            if (type.GetTypeInfo().BaseType == typeof(Enum))
-                return Enum.Parse(type, Convert.ToString(value));
+            if (underlyingType.GetTypeInfo().BaseType == typeof(Enum))
+                return Enum.Parse(underlyingType, Convert.ToString(value));
 
 
             var s = Convert.ToString(value);

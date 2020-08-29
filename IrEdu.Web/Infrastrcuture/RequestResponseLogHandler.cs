@@ -27,16 +27,30 @@ namespace IrEdu.Web.Infrastrcuture
         
         private RequestResponseLogMetadata BuildRequestMetadata(RequestResponseLogMetadata logMetadata,HttpRequestMessage request)
         {
-            
-            var content = request.Content.ReadAsStringAsync();
-            var result = content.Result;
+			if (request.Content.IsMimeMultipartContent())
+			{
+				
 
-            logMetadata.RequestContent = result;
-            logMetadata.RequestMethod = request.Method.Method;
-            logMetadata.RequestTimestamp = DateTime.Now;
-            logMetadata.RequestUri = request.RequestUri.ToString();
+				logMetadata.RequestContent = "multipart/form-data";
+				logMetadata.RequestMethod = request.Method.Method;
+				logMetadata.RequestTimestamp = DateTime.Now;
+				logMetadata.RequestUri = request.RequestUri.ToString();
 
-            return logMetadata;
+				return logMetadata;
+			}
+			else
+			{
+				var content = request.Content.ReadAsStringAsync();
+				var result = content.Result;
+
+				logMetadata.RequestContent = result;
+				logMetadata.RequestMethod = request.Method.Method;
+				logMetadata.RequestTimestamp = DateTime.Now;
+				logMetadata.RequestUri = request.RequestUri.ToString();
+
+				return logMetadata;
+			}
+           
         }
         private RequestResponseLogMetadata BuildResponseMetadata(RequestResponseLogMetadata logMetadata, HttpResponseMessage response)
         {
@@ -52,12 +66,9 @@ namespace IrEdu.Web.Infrastrcuture
         }
         private  Task<bool> SendToLog(RequestResponseLogMetadata logMetadata)
         {
-            new Thread(new ThreadStart(() =>
-            {
-                LogManager.WriteLog<FileLogger>(Newtonsoft.Json.JsonConvert.SerializeObject(logMetadata), $"{logMetadata.ApiActionName} ( Request-{logMetadata.RequestTimestamp?.ToTimeStamp()} Response-{logMetadata.ResponseTimestamp?.ToTimeStamp()} ).txt");
-            })).Start();
+			//LogManager.WriteLog<FileLogger>(Newtonsoft.Json.JsonConvert.SerializeObject(logMetadata), $"{logMetadata.ApiActionName} ( Request-{logMetadata.RequestTimestamp?.ToTimeStamp()} Response-{logMetadata.ResponseTimestamp?.ToTimeStamp()} ).txt");
 
-            return Task.FromResult(true);
+			return Task.FromResult(true);
         }
     }
 }

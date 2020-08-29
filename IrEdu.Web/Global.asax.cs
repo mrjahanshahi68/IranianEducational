@@ -16,13 +16,14 @@ using IrEdu.DataAccess.Log;
 using IrEdu.Web.Cache;
 using IrEdu.Web.Log;
 using IrEdu.Web.Infrastrcuture;
+using System.IO;
 
 namespace IrEdu.Web
 {
-    public class Global : HttpApplication
-    {
-        void Application_Start(object sender, EventArgs e)
-        {
+	public class Global : HttpApplication
+	{
+		void Application_Start(object sender, EventArgs e)
+		{
 			AreaRegistration.RegisterAllAreas();
 			GlobalConfiguration.Configure(WebApiConfig.Register);
 			RouteConfig.RegisterRoutes(RouteTable.Routes);
@@ -40,5 +41,5 @@ namespace IrEdu.Web
 			ViewEngines.Engines.Clear();
 			ViewEngines.Engines.Add(new AppViewEngine());
 		}
-    }
+	}
 }

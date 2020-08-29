@@ -34,28 +34,22 @@ namespace IrEdu.Common
 			UnAuthenticated = 4,
 			UnAuthorized = 5,
 		}
-
-		public enum CustomerType
-		{
-			PropertyOwner=1,
-			PropertyApplicant=2,
-		}
 		public enum ObjectType
 		{
-			Property=1,
+			Podcast=1,
+			Video=2,	
+			//Blog=2,
 		}
-		public enum DocumentType
+		public enum EducationalLevel
 		{
-			Registered=1,
-
+			Beginner = 1,
+			Intermediate = 2,
+			Advanced = 3,
 		}
-		public enum TransactionType
+		public enum FileUnit
 		{
-			Rent =1,
-			Sale =2,
-			PreSel=3,
-			Exchange=4,
+			KB=1,
+			MG=2,
 		}
-		
 	}
 }

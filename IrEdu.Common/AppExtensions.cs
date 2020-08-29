@@ -21,25 +21,37 @@ namespace IrEdu.Common
 		{
 			return Convert.ToBase64String(byteArray);
 		}
-        public static string GetApiAction(this Uri uri)
-        {
-            try
-            {
-                return uri.Segments[uri.Segments.Length - 1].Trim('/');
-            }
-            catch
-            {
-                return "UnknownAction";
-            }
-        }
-        public static string ToTimeStamp(this DateTime date)
-        {
-            return date.ToString("yyyyMMddHHmmssffff");
-        }
-        public static string ToShamsi(this DateTime date)
-        {
-            PersianCalendar pc = new PersianCalendar();
-            return $"{pc.GetYear(date)}/{pc.GetMonth(date)}/{pc.GetDayOfMonth(date)}";
-        }
+		public static string ToTimeStamp(this DateTime date)
+		{
+			return date.ToString("yyyyMMddHHmmssffff");
+		}
+		public static string ToShamsi(this DateTime date)
+		{
+			PersianCalendar pc = new PersianCalendar();
+			return $"{pc.GetYear(date)}/{pc.GetMonth(date)}/{pc.GetDayOfMonth(date)}";
+		}
+		public static string AsOptimizeUrl(this string text)
+		{
+			string s = "~!@#$%^&*()_+?><|';{}[] ";
+			for (int i = 0; i < text.Length; i++)
+			{
+				if (s.IndexOf(text[i]) > -1)
+				{
+					text = text.Replace(text[i], '-');
+				}
+			}
+			return text;
+		}
+		public static string GetApiAction(this Uri uri)
+		{
+			try
+			{
+				return uri.Segments[uri.Segments.Length - 1].Trim('/');
+			}
+			catch
+			{
+				return "UnknownAction";
+			}
+		}
 	}
 }

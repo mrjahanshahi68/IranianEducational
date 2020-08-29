@@ -9,7 +9,7 @@ namespace IrEdu.DataAccess
 	public interface IRepository<TEntity> where TEntity : class
 	{
 		void Delete(TEntity entityToDelete);
-		//void Delete(int id);
+		void Delete(int id);
 		void Insert(TEntity entity);
 		void Update(TEntity entityToUpdate);
 		TEntity Find(int id);

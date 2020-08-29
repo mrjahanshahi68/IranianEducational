@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace IrEdu.DataAccess.Log.MapConfigurations
 {
-    public class ExceptionMapConfig : EntityMapConfig<Common.Entities.Log.Exception>
+    public class ExceptionMapConfig : EntityMapConfig<IrEdu.Common.Entities.Log.Exception>
     {
         public ExceptionMapConfig()
         {

@@ -79,12 +79,13 @@ namespace IrEdu.DataAccess
                 throw new DataAccessException(ex.Message, ex);
             }
 		}
-		//public virtual void Delete(int id)
-		//{
-		//	TEntity entityToDelete = Find(id);
-		//	if (entityToDelete != null)
-		//		Delete(entityToDelete);
-		//}
+		
+		public virtual void Delete(int id)
+		{
+			TEntity entityToDelete = Find(id);
+			if (entityToDelete != null)
+				Delete(entityToDelete);
+		}
 		public virtual void Insert(TEntity entity)
 		{
             try

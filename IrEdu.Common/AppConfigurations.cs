@@ -27,5 +27,23 @@ namespace IrEdu.Common
                 return issuer;
             }
         }
-    }
+		public static string PodcastFolder
+		{
+			get
+			{
+				var podcast = ConfigurationManager.AppSettings["Podcast"];
+				if (string.IsNullOrWhiteSpace(podcast)) throw new NullReferenceException("you must define podcast");
+				return podcast;
+			}
+		}
+		public static string VideoFolder
+		{
+			get
+			{
+				var video = ConfigurationManager.AppSettings["Video"];
+				if (string.IsNullOrWhiteSpace(video)) throw new NullReferenceException("you must define video");
+				return video;
+			}
+		}
+	}
 }

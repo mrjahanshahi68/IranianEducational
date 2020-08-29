@@ -197,17 +197,26 @@
 	</div>
 </nav>
 <aside>
+	@{ 
+		var routePrefix = "";
+	}
 	<div class="sidebar-menu">
         <div class="menu-header">
             <span>فهرست</span>
         </div>
 		<ul>
 			<li>
-				<a>
-					<i class="fa fa-building" aria-hidden="true"></i>مدیریت ملک
+				<a href="@routePrefix/podcast">
+					<i class="fa fa-building" aria-hidden="true"></i>پادکست
 				</a>
 			</li>
 			<li>
+				<a href="@routePrefix/Video">
+					<i class="fa fa-building" aria-hidden="true"></i>ویدیو آموزشی
+				</a>
+			</li>
+
+			@*<li>
 				<a>
 					<i class="fa fa-inbox" aria-hidden="true"></i>ملک های سپرده شده
 				</a>
@@ -241,7 +250,7 @@
 				<a>
 					<i class="fa fa-lock" aria-hidden="true" ></i>تغییر پسورد
 				</a>
-			</li>
+			</li>*@
 		</ul>
 	</div>
 	

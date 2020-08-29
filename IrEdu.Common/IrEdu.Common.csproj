@@ -47,9 +47,12 @@
     <Compile Include="AppExtensions.cs" />
     <Compile Include="Entities\AppUserInfo.cs" />
     <Compile Include="Entities\BaseEntity.cs" />
+    <Compile Include="Entities\Common\Attachment.cs" />
     <Compile Include="Entities\IEntity.cs" />
     <Compile Include="Entities\ILoggableEntity.cs" />
     <Compile Include="Entities\ILogicalDeletable.cs" />
+    <Compile Include="Entities\Learn\Vidoe.cs" />
+    <Compile Include="Entities\Learn\Podcast.cs" />
     <Compile Include="Entities\LoggableEntity.cs" />
     <Compile Include="Entities\Log\Exception.cs" />
     <Compile Include="Entities\Security\Role.cs" />

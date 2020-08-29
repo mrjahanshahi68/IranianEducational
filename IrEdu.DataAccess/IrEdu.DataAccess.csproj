@@ -51,11 +51,14 @@
     <Compile Include="AppDataContext.cs" />
     <Compile Include="AppUnitOfWork.cs" />
     <Compile Include="BaseRepository.cs" />
+    <Compile Include="Common\MapConfigurations\AttachmentMapConfig.cs" />
     <Compile Include="DataContext.cs" />
     <Compile Include="EntityMapConfig.cs" />
     <Compile Include="IDataContext.cs" />
     <Compile Include="IRepository.cs" />
     <Compile Include="IUnitOfWork.cs" />
+    <Compile Include="Learn\MapConfigurations\VideoMapConfig.cs" />
+    <Compile Include="Learn\MapConfigurations\PodcastMapConfig.cs" />
     <Compile Include="LoggableEntityMapConfig.cs" />
     <Compile Include="Log\LogDataContext.cs" />
     <Compile Include="Log\LogUnitOfWork.cs" />

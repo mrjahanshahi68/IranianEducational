@@ -9,7 +9,12 @@ namespace IrEdu.Common
 	public static class AppConstants
 	{
 		public  const int ExpireMinutes = 20;
-        public static class DatabaseSchema
+
+		/// <summary>
+		/// Kilobyte
+		/// </summary>
+		public const int Kilobyte = 1_204;
+		public static class DatabaseSchema
         {
             public const string Security = "Security";
             public const string Exam = "Exam";
@@ -19,11 +24,12 @@ namespace IrEdu.Common
 		{
 			public const string MissingToken = "Missing token";
 			public const string InvalidToken = "Invalid token";
-            public const string ParameterIsNotDefined = "Parameters is not defined";
+			public const string ParameterIsNotDefined = "Parameters is not defined";
 			public const string InvalidIdentity = "کد شناسه نامعتبر می باشد";
-            public const string Required = "{0} اجباری می باشد";
+			public const string Required = "{0} اجباری می باشد";
 			public const string RecordNotFound = "رکورد مورد نظر یافت نشد";
 			public const string TokenExpired = "توکن منقضی شده است";
+			public const string Repetitious = "عنوان مورد نظر تکراری می باشد.";
 		}
 	}
 }

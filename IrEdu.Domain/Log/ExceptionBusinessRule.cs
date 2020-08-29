@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace IrEdu.Domain.Log
 {
-    public class ExceptionBusinessRule:BaseBusinessRule<Common.Entities.Log.Exception>
+    public class ExceptionBusinessRule:BaseBusinessRule<IrEdu.Common.Entities.Log.Exception>
     {
         public ExceptionBusinessRule() : base()
         {

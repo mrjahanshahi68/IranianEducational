@@ -11,7 +11,7 @@ namespace IrEdu.DataAccess.Log
 {
     public class LogDataContext : DataContext
     {
-        public LogDataContext() : base("RealEstateConnectionString") { }
+        public LogDataContext() : base("IrEduConnectionString") { }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.HasDefaultSchema(DatabaseSchema.Log);

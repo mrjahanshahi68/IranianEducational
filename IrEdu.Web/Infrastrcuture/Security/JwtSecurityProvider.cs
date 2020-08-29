@@ -64,7 +64,7 @@ namespace IrEdu.Web.Security
             var tokenDescriptor = new SecurityTokenDescriptor
             {
                 Subject= identity,
-                Expires = now.AddMinutes(expireMinutes),
+                Expires = now.AddDays(expireMinutes),
                 SigningCredentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256Signature, SecurityAlgorithms.Sha256Digest),
             };
 
@@ -119,7 +119,7 @@ namespace IrEdu.Web.Security
 			var tokenExpiryDate = GetRestOfExpiryDate(token);
 			TimeSpan timeSpan = tokenExpiryDate - DateTime.Now;
 			var restOfExpireMinute = timeSpan.TotalMinutes;
-			if (restOfExpireMinute < 0)
+			if (restOfExpireMinute > 0)
 				return true;
 			return false;
 		}
